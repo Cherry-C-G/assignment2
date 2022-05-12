@@ -1,0 +1,104 @@
+Write queries for following scenarios
+
+Conceptual Questions:
+
+
+1. Difference between WHERE and HAVING?
+
+--Where and Having:
+--1. Both are used as filters but having applies to groups and filters on aggreagate functions, but where applies to individual rows
+--2. Where cannot filter by aggregate functions; however having can.
+--3. Where can be used with Select, Update, Delete, but Having can only be used with Select
+
+The UNION operator selects only distinct values by default.
+ To allow duplicate values, use UNION AL
+
+ The major difference between WHERE and HAVING is that WHERE clause specifies the 
+conditions for selecting the tuples (rows) from the relations, 
+including join conditions if needed. On the other hand, 
+HAVING clause specifies a condition on the groups being selected rather than on 
+individual tuples.
+
+Difference Between Where and Having Clause in SQL
+Difference between WHERE and HAVING clauseWHERE and HAVING clause are mainly used in the statement of SQL queries, these allow us to restrict the combination in the result relation through using a specific predicate. The major difference between WHERE and HAVING is that WHERE clause specifies the conditions for selecting the tuples (rows) from the relations, including join conditions if needed. On the other hand, HAVING clause specifies a condition on the groups being selected rather than on individual tuples.
+
+
+ 
+SQL stands for Structured Query Language; it is comprehensive or declarative database language used for accessing the data from the databases.
+
+Content: Where Clause Vs Having Clause
+Comparison Chart
+Definition
+Key Differences
+Conclusion
+
+Comparison Chart
+BASIS FOR COMPARISON	WHERE	                        HAVING
+Basic	          Implemented in row operations.   Implemented in column operations.
+Applied to	   Single row	                   Summarized row or groups.
+Data fetching	It only fetches the particular data from particular rows according to the condition.	At first, complete data is fetched then separated according to the condition.
+Aggregate Functions	Cannot appear in WHERE clause.	Can appear in HAVING clause.
+Used with	SELECT and other statements such as UPDATE, DELETE or either one of them.	Can't be used without a SELECT statement.
+Act as	                Pre-filter	             Post-filter
+GROUP BY	      Comes after WHERE.	    Comes before HAVING.
+
+
+2. Difference between RANK() and DenseRank()
+
+RANK can have gaps in its sequence and when values are the same, they get the same rank.
+DENSE_RANK also returns the same rank for ties, but doesn’t have any gaps in the sequence.
+
+--Rank(): value gap
+--Dense_Rank(): No value gap
+
+3. What is correlated subquery?
+
+--Subqueries
+--Select statement that is embedded in another query
+
+In a SQL database query, a correlated subquery (also known as a synchronized subquery)
+ is a subquery (a query nested inside another query) that uses values from 
+the outer query. Because the subquery may be evaluated once for each row 
+processed by the outer query, it can be inefficient.
+
+Same reason to use Temporary Tables, CTEs and Table Variables if needed.
+
+4. Criteria of Union and Union all?
+
+The condition of using Unions are that the number of columns and data type of each 
+column from both result set should match in the order they are given.
+
+Every SELECT statement within UNION must have the same number of columns
+The columns must also have similar data types
+The columns in every SELECT statement must also be in the same order
+
+5. Difference between UNION and UNION ALL
+
+--Union vs Union All: 
+--1. Union removes duplicates, union all will not
+--2. Union the records from the first column is sorted automatically
+--3. Unions cannot be used in recursive CTE, while Union All can
+
+Unions: Concatenates the results of two queries into a single result set.
+
+Union removes duplicate records (where all columns in the results are the same), Union All does not.
+
+There is a performance hit when using Union vs Union All, since the database server must do additional work to remove the duplicate rows, but usually you do not want the duplicates especially in reports.
+
+
+6. Difference between Union and JOIN
+
+JOIN：
+1. JOIN combines data from many tables based on a matched condition between them
+2. It combines data into new columns
+3. Number of columns selected from each table may not be same.
+4. Datatypes of corresponding columns selected from each table can be different.
+5. It may not return distinct columns.
+
+Union：
+1. SQL combines the result-set of two or more SELECT statements.
+2. It combines data into new rows
+3. Number of columns selected from each table should be same.
+4. Datatypes of corresponding columns selected from each table should be same.
+5. It returns distinct rows.
+
